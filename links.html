@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDESUR - Links Dropbox</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Links de Dropbox - EDESUR</h1>
+    <table id="csvTable">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Carátula</th>
+                <th>Link Dropbox</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos del CSV aparecerán aquí -->
+        </tbody>
+    </table>
+
+    <script>
+        // Ruta al archivo CSV en el repositorio
+        const csvFilePath = "links_dropbox.csv";
+
+        // Función para cargar el CSV y mostrarlo en la tabla
+        function loadCSV(filePath) {
+            Papa.parse(filePath, {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    const data = results.data;
+                    const tableBody = document.querySelector("#csvTable tbody");
+
+                    data.forEach(row => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${row["Numero"] || ""}</td>
+                            <td>${row["Caratula"] || ""}</td>
+                            <td><a href="${row["Link Dropbox"]}" target="_blank">${row["Link Dropbox"]}</a></td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                }
+            });
+        }
+
+        // Cargar el CSV al cargar la página
+        loadCSV(csvFilePath);
+    </script>
+</body>
+</html>
