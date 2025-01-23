@@ -6,31 +6,67 @@
     <title>EDESUR - Links Dropbox</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
+        /* Estilo de tabla */
         table {
             width: 100%;
             border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+            font-size: 16px;
             text-align: left;
         }
+
+        /* Cabecera de la tabla */
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Filas de la tabla */
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        /* Alternar colores en las filas */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        /* Resaltar fila al pasar el mouse */
         tr:hover {
-            background-color: #f5f5f5;
+            background-color: #f1f1f1;
+        }
+
+        /* Estilo de los enlaces */
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0b5ed7;
+        }
+
+        /* Centrar el contenido de las columnas */
+        th, td {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>Links de Dropbox - EDESUR</h1>
+    <h1 style="text-align: center; color: #333;">Links de Dropbox - EDESUR</h1>
     <table id="csvTable">
         <thead>
             <tr>
                 <th>Número</th>
                 <th>Carátula</th>
-                <th>Link Dropbox</th>
+                <th>Enlace</th>
             </tr>
         </thead>
         <tbody>
@@ -56,7 +92,7 @@
                         tr.innerHTML = `
                             <td>${row["Numero"] || ""}</td>
                             <td>${row["Caratula"] || ""}</td>
-                            <td><a href="${row["Link Dropbox"]}" target="_blank">${row["Link Dropbox"]}</a></td>
+                            <td><a href="${row["Link Dropbox"]}" target="_blank">Enlace a la carátula</a></td>
                         `;
                         tableBody.appendChild(tr);
                     });
