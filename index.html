@@ -3,76 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDESUR - Links Dropbox</title>
+    <title>CARÁTULAS</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
-        /* Estilo de tabla */
+        /* Estilo general */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Título principal */
+        h1 {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        /* Contenedor de tabla */
+        .table-container {
+            margin: 20px auto;
+            width: 90%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Tabla */
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
-            margin: 20px 0;
-            font-size: 16px;
-            text-align: left;
         }
 
-        /* Cabecera de la tabla */
         th {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 12px;
             text-align: center;
+            font-size: 14px;
         }
 
-        /* Filas de la tabla */
         td {
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
         }
 
-        /* Alternar colores en las filas */
+        /* Colores alternados para las filas */
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
         tr:nth-child(odd) {
-            background-color: #ffffff;
+            background-color: #fff;
         }
 
-        /* Resaltar fila al pasar el mouse */
+        /* Hover en filas */
         tr:hover {
             background-color: #f1f1f1;
         }
 
-        /* Estilo de los enlaces */
+        /* Estilo de enlaces */
         a {
-            color: #1a73e8;
+            background-color: #000;
+            color: #fff;
             text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #0b5ed7;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
 
-        /* Centrar el contenido de las columnas */
-        th, td {
+        a:hover {
+            background-color: #333;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; color: #333;">Links de Dropbox - EDESUR</h1>
-    <table id="csvTable">
-        <thead>
-            <tr>
-                <th>Número</th>
-                <th>Carátula</th>
-                <th>Enlace</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Los datos del CSV aparecerán aquí -->
-        </tbody>
-    </table>
+    <h1>CARÁTULAS</h1>
+    <div class="table-container">
+        <table id="csvTable">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Carátula</th>
+                    <th>Enlace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los datos del CSV aparecerán aquí -->
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        &copy; 2025 EDESUR - Todos los derechos reservados.
+    </footer>
 
     <script>
         // Ruta al archivo CSV en el repositorio
